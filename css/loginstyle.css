@@ -1,0 +1,47 @@
+body{
+	margin:0;
+}
+
+.maincontainer{
+	width:1000px;
+	height:100px;
+	margin:auto;
+}
+.maincontainer1{
+	width:100%;
+	height:40px;
+	background-color:navy;
+}
+.innercontainer1{
+	width:1000px;
+	height:40px;
+	margin:auto;
+}
+.date{
+	margin:0;
+	color:white;
+	font-weight:bold;
+	font-family:arial;
+	line-height:40px;
+	color:white;
+}
+.maincontainer2{
+	width:1000px;
+	height:500px;
+	margin:auto;
+}
+.logintable{
+	font-family:arial;
+	font-size:16px;
+	width:300px;
+	margin:auto;
+	padding-top:50px;
+}
+.footer{
+	width:100%;
+	height:30px;
+	background-color:navy;
+}
+.icons{
+	padding-right:10px;
+}

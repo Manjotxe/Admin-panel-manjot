@@ -1,0 +1,166 @@
+body{
+	margin:0;	
+}
+.maincontainer{
+	width:1000px;
+	background-color:red;
+	height:70px;
+	margin:auto;
+}
+.abc{
+	float:right;
+}
+.maincontainer2{
+	width:100%;
+	height:40px;
+	background-color:#00426A;
+}
+.date{
+	width:1000px;
+	height:80px;
+	color:white;
+	margin:auto;
+}
+.innercontainer1{
+	line-height:40px;
+}
+.maincontainer3{
+	width:1000px;
+	height:600px;
+	margin:auto;
+}
+.last{
+	width:100%;
+	height:40px;
+	background-color:#00416A;
+}
+.left{
+	float:left;
+	width:280px;
+	height:530px;
+}
+.right{
+	width:720px;
+	height:530px;
+	float:right;
+}
+.this{
+	margin-top:10px;
+}
+.page{
+	padding-top:5px;
+	padding-bottom:2px;
+	font-size:22px;
+	border-bottom:dotted 1px gray;
+	color:00416A;
+}
+
+.inner5{
+	margin:0;
+	padding:0;
+	list-style:none;
+	border-top:none;
+	color:white;
+	text-decoration:none;
+}
+
+.inner5 li{
+	padding:8px;
+	width:240px;
+	border:solid 1px #CCC;
+}
+.inner5 li:nth-child(1){
+	padding-top:20px;
+}
+.inner5 li:nth-child(odd){
+	border-bottom:solid 1px gray;
+	color:00416A;
+	font-weight:bold;
+}
+.inner5 li:nth-child(even){
+	border-bottom:solid 1px gray;
+}
+.inner5 li:nth-child(6){
+	color:00416A;
+}
+.inner5 li:nth-child(7){
+	color:gray;
+}
+.table2{
+		width:680px;
+		height:490px;
+		border:solid 1px black;
+}
+.table{
+	 border:solid 1px black;
+	 width:660; 
+	 height:440px; 
+	 margin:11px;
+	 border-collapse:collapse;
+	 
+}
+.table tr:nth-child(1) td:nth-child(1){
+	padding-left:80px;
+}
+.table tr:nth-child(2) td:nth-child(1){
+	padding-left:120px;
+}
+.table tr:nth-child(3) td:nth-child(1){
+	padding-left:130px;
+}
+.table tr:nth-child(4) td:nth-child(1){
+	padding-left:60px;
+	height:40px;
+}
+.table tr:nth-child(5) td:nth-child(1){
+	padding-left:50px;
+	height:40px;
+}
+.table tr:nth-child(7) td:nth-child(1){
+	padding-left:120px;
+}
+.table tr:nth-child(8) td:nth-child(1){
+	padding-left:70px;
+}
+.table tr:nth-child(9) td:nth-child(1){
+	padding-left:120px;
+}
+.logo12{
+	height:50px;
+	width:500px;
+	float:right;
+}
+.text{
+	width:500px;
+	height:185px;
+}
+.content{
+	padding-top:10%;
+	padding-left:16%;
+	float:left;
+}
+.image{
+	text-align:right;
+}
+.page1{
+	background-color:#EEE;
+	font-weight:bold;
+	border:solid 1px black;
+	padding-bottom:1px;
+}
+.as{
+	background-color:#EEE;
+	width:680px;
+	border:solid 1px black;
+	height:20px;
+	line-height:18spx;
+}
+.save{
+	margin-left:180px;
+	background-color:00416A;
+	color:white;
+}
+.cancel{
+	background-color:00416A;
+	color:white;
+}											
