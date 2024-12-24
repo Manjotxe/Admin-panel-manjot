@@ -40,24 +40,27 @@
 					<table>
 						<td>  Select Product  </td>
 							<td>
-								<select name="catname"> 
+								<select name="catname">
 									<option>&lt;select Category&gt;</option>
 									<?php
-										if(!empty($_GET['$a']))
-										{
-											$query="select  from category where id=$a";
-										}
-										else{
-											$query="select * from category";
-										}
-										$result=mysqli_query($connect,$query);
-										while($cat=mysqli_fetch_assoc($result))
-										{
+									if (isset($_GET['eid'])) {
+										$eid = mysqli_real_escape_string($connect, $_GET['eid']);
+										$query = "SELECT category_id FROM product WHERE id = $eid";
+										$result = mysqli_query($connect, $query);
+										$product = mysqli_fetch_assoc($result);
+										$selectedCategoryId = $product['category_id']; // Get the category ID of the product
+									}
+									$query = "SELECT * FROM category";
+									$result = mysqli_query($connect, $query);
+									while ($cat = mysqli_fetch_assoc($result)) {
+										$selected = (isset($selectedCategoryId) && $cat['id'] == $selectedCategoryId) ? 'selected' : '';
 									?>
-										<option value="<?php echo $cat['id']?>"><?php echo $cat['categoryname']?></option>
-									<?php
-										}
-									?>
+										<option value="<?php echo $cat['id']; ?>" <?php echo $selected; ?>>
+											<?php echo $cat['categoryname']; ?>
+										</option>
+										<?php
+									}
+										?>
 								</select>
 							</td>
 						<tr>
