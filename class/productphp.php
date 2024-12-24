@@ -5,37 +5,52 @@
 	class admin3
 	{
 		function edit()
-		{
-			global $connect;
-			$catid=$_POST['catname'];
-			$pname=$_POST['pname'];
-			$pdescription=$_POST['pdescription'];
-			$pprice=$_POST['pprice'];
-			$imagename=$_FILES['pimage']['name'];
-			$ptemp=$_FILES['pimage']['tmp_name'];
-			$currenttime=round(microtime(true)* 1000);
-			$extarr=explode(".",$imagename);
-			$ext=$extarr['1'];
-			$fullfilename=$currenttime.".".$ext;
-			$query="insert into product (category_id,pname,pdescription,pprice,pimage) value('$catid','$pname','$pdescription','$pprice','$fullfilename')";
-			if(mysqli_query($connect,$query))
-			{
-					move_uploaded_file($ptemp,"uploadimage/".$fullfilename);
-				?>
-				<script>
-					alert("Product inserted");
-				</script>
-				<?php
+	{
+		global $connect;
+
+		$catid = mysqli_real_escape_string($connect, $_POST['catname']);
+		$pname = mysqli_real_escape_string($connect, $_POST['pname']);
+		$pdescription = mysqli_real_escape_string($connect, $_POST['pdescription']);
+		$pprice = mysqli_real_escape_string($connect, $_POST['pprice']);
+		$imagename = $_FILES['pimage']['name'];
+		$ptemp = $_FILES['pimage']['tmp_name'];
+		$currenttime = round(microtime(true) * 1000);
+		$extarr = explode(".", $imagename);
+		$ext = $extarr[1];
+		$fullfilename = $currenttime . "." . $ext;
+
+		if (isset($_GET['eid'])) {
+			$eid = mysqli_real_escape_string($connect, $_GET['eid']);
+
+			$query = "UPDATE product 
+                  SET category_id = '$catid', pname = '$pname', pdescription = '$pdescription', pprice = '$pprice', pimage = '$fullfilename' 
+                  WHERE id = '$eid'";
+
+			if (!empty($imagename)) {
+				move_uploaded_file($ptemp, "uploadimage/" . $fullfilename);
 			}
-			else
-			{
-				?>
-				<script>
-					alert("Product Not inserted");
-				</script>
-				<?php
-			}
+			$message = "Product updated";
+		} else {
+			$query = "INSERT INTO product (category_id, pname, pdescription, pprice, pimage) 
+                  VALUES ('$catid', '$pname', '$pdescription', '$pprice', '$fullfilename')";
+			move_uploaded_file($ptemp, "uploadimage/" . $fullfilename);
+			$message = "Product inserted";  // Success message for insert
 		}
+
+		if (mysqli_query($connect, $query)) {
+?>
+			<script>
+				alert("<?php echo $message; ?>");
+			</script>
+		<?php
+		} else {
+		?>
+			<script>
+				alert("Product Not inserted or updated. There was an error.");
+			</script>
+			<?php
+		}
+	}
 		function edit1($id)
 		{
 			global $connect,$r;
