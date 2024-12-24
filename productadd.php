@@ -54,7 +54,7 @@
 										while($cat=mysqli_fetch_assoc($result))
 										{
 									?>
-										<option value="<?php echo $cat['id']?>"><?php echo $cat['categoryname']?>"</option>
+										<option value="<?php echo $cat['id']?>"><?php echo $cat['categoryname']?></option>
 									<?php
 										}
 									?>
